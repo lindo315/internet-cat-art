@@ -21,10 +21,10 @@ let currentBrushSize = 5;
 
 // This function sets up a canvas for painting.
 // It initializes the canvas, sets its size, and adds event listeners for mouse events.
-// The canvas is used for drawing with a mouse.
+// It's basically used for drawing with a mouse.
 
 function setupPainter() {
-  // Get the canvas element and its 2D rendering context
+  // Get the canvas element and its 2D rendering context...
   const canvas = document.getElementById("painter-canvas");
   const ctx = canvas.getContext("2d");
 
@@ -233,9 +233,9 @@ function updateArt() {
 
       // Set the source of the overlay image to the cat image URL.
       overlayImage.attr("src", d.url);
-      // Show the overlay.
+      // Show the overlay
       overlay.style("display", "flex");
-      // Set up the painter.
+      // Set up the painter
       setupPainter();
     });
 
@@ -252,33 +252,31 @@ function updateArt() {
       )
       .style("opacity", 1);
 
-    // Transition the existing elements that are no longer in the data set to disappear.
+    // Now transition the existing elements that are no longer in the data set to disappear.
     cats
       .exit()
       .transition()
       .duration(500)
       .attr("transform", `translate(${width / 2}, ${height / 2}) scale(0)`)
       .style("opacity", 0)
-      // Remove the elements from the DOM.
+      // Remove the elements from the DOM
       .remove();
   });
 }
 
-/**
- * This function changes the background color of the page.
- * It picks a random color from the array of colors
- * and transitions the background color to that color.
- */
+//  Create a function that changes the background color of the page.
+//  It should pick a random color from the array of colors and transitions the background color to that color.
+
 function changeBackground() {
-  // Array of colors to choose from.
+  // Array of colors to choose from - DONE
   const colors = ["#f0f", "#0ff", "#ff0"];
-  // Pick a random color from the array.
+  // Pick a random color from the array - DONE
   const randomColor = colors[Math.floor(Math.random() * colors.length)];
-  // Transition the background color to the random color.
+  // Change the background color to the random color - DONE
   background.transition().duration(500).style("background-color", randomColor);
 }
 
-// Displays a random fact about cats on a webpage with a fade-in effect.
+// Try to display a random fact about cats on a webpage (maybe add an effect?)
 function showFactBox() {
   const facts = [
     "Did you know that cats sleep for around 16 hours a day?",
@@ -287,40 +285,39 @@ function showFactBox() {
     "Cats have over 100 vocal sounds, while dogs only have about 10.",
     "The first cat in space was a French cat named Felicette in 1963.",
   ];
+
+  // Now loop through the array and select a random fact - DONE
   const randomFact = facts[Math.floor(Math.random() * facts.length)];
   factBox.text(randomFact);
   factBox.transition().duration(500).style("opacity", 1);
 }
 
-/**
- * Hide the fact box by fading it out.
- */
+// Hide the fact box by fading it out every now and then...
 function hideFactBox() {
   factBox.transition().duration(500).style("opacity", 0);
 }
 
-/**
- * Add a click event listener to the body.
- * When the body is clicked, update the art, change the background, and show a fact box.
- */
+// Find way to change the background color of the page on click:
+// 1) Add a click event listener to the body - DONE
+// 2) When the body is clicked:
+//  2.1) Update the art - DONE
+//  2.2) Change the background - DONE
+//  2.3) Show the fact box - DONE
+
 d3.select("body").on("click", function () {
   updateArt();
   changeBackground();
   showFactBox();
 });
 
-/**
- * Add a click event listener to the close button.
- * When the close button is clicked, hide the overlay by setting its display style to "none".
- */
+// Add a click event listener to the close button:
+// When clicked, it should hide the overlay - WORKING...
 closeButton.on("click", function () {
   overlay.style("display", "none");
 });
 
-/**
- * Add a click event listener to the info button.
- * When the info button is clicked, display an alert message with information about the cat Internet Art Experience.
- */
+// Add a click event listener to the info button:
+// When clicked, it should display a message - LOL use an alert cause it's annoying (old internet style) - DONE
 infoButton.on("click", function () {
   alert(
     "Welcome to the 90s cat Internet Art Experience!\n\nClick anywhere on the screen to generate new cat art and learn fun facts about cats. Click on a cat image to enlarge it and unleash your creativity with the cat Painter. Enjoy the nostalgic and interactive experience!"
