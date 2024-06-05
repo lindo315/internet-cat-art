@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cat Internet Art</title>
+    <link rel="stylesheet" type="text/css" href="index.css" />
+  </head>
+  <body>
+    <div class="background"></div>
+    <div class="marquee">
+      <span>Welcome to the Cute Cat Internet Artsy Experience!</span>
+    </div>
+    <div class="overlay">
+      <div class="overlay-content">
+        <img id="overlay-image" src="" alt="Selected cat" />
+        <!-- <p id="overlay-fact"></p> -->
+        <div class="painter-container">
+          <h2>
+            Cat Painter
+            <button id="save-button">Save Drawing</button>
+            <button id="gallery-button">Gallery</button>
+            <button class="close-button">Close</button>
+          </h2>
+
+          <canvas id="painter-canvas"></canvas>
+          <div class="painter-controls">
+            <button
+              class="color-button"
+              style="background-color: #ff0000"
+            ></button>
+            <button
+              class="color-button"
+              style="background-color: #00ff00"
+            ></button>
+            <button
+              class="color-button"
+              style="background-color: #0000ff"
+            ></button>
+            <button
+              class="color-button"
+              style="background-color: #ffff00"
+            ></button>
+            <button
+              class="color-button"
+              style="background-color: #ff00ff"
+            ></button>
+            <button
+              class="color-button"
+              style="background-color: #00ffff"
+            ></button>
+            <button class="brush-size-button" data-size="2">Small</button>
+            <button class="brush-size-button" data-size="5">Medium</button>
+            <button class="brush-size-button" data-size="10">Large</button>
+            <button id="clear-button">Clear</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="info-button">Info</button>
+    <div class="fact-box" id="fact-box"></div>
+
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="sketch.js"></script>
+  </body>
+</html>
